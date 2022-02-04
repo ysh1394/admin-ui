@@ -46,7 +46,7 @@
     "@mui/material": "^5",
     "react": "^17"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build": "yarn build:cjs && yarn build:esm",
     "build-storybook": "build-storybook",
