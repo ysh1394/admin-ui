@@ -29,6 +29,19 @@
   ],
   "rules": {
     "@typescript-eslint/array-type": "error",
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "{}": {
+            "fixWith": "object"
+          },
+          "Object": {
+            "fixWith": "object"
+          }
+        }
+      }
+    ],
     "@typescript-eslint/consistent-type-definitions": "error",
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/method-signature-style": "error",
@@ -51,6 +64,12 @@
       }
     ],
     "import/prefer-default-export": "warn",
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "TSEnumDeclaration"
+      }
+    ],
     "react/function-component-definition": [
       "error",
       {
@@ -73,6 +92,7 @@
       }
     ],
     "react/prop-types": "off",
+    "react/require-default-props": "off",
     "simple-import-sort/exports": "warn",
     "simple-import-sort/imports": "warn",
     "sort-destructure-keys/sort-destructure-keys": "warn",
