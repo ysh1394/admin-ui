@@ -18,32 +18,27 @@ import type { MouseEvent, ReactNode } from 'react';
 import { useCallback, useState } from 'react';
 
 export interface IProps {
-  pages: {
-    href: string;
-    value: string;
-  }[];
+  pages: { href: string; value: string }[];
   className?: string;
   color?: AppBarProps['color'];
-  lists?: {
-    href: string;
-    value: string;
-  }[];
+  lists?: { href: string; value: string }[];
   logo?: ReactNode;
 }
 
 const Header = ({ className, color, logo, pages = [] }: IProps) => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
+  const onClose = useCallback(() => {
+    setAnchorEl(null);
+  }, []);
   const onOpen = useCallback((e: MouseEvent<HTMLElement>) => {
     setAnchorEl(e.currentTarget);
   }, []);
 
-  const onClose = useCallback(() => {
-    setAnchorEl(null);
-  }, []);
   return (
     <AppBar className={className} color={color} position="static">
       <Toolbar variant="dense">
+        {/* md: logo */}
         <Typography
           component="div"
           sx={{
@@ -58,6 +53,8 @@ const Header = ({ className, color, logo, pages = [] }: IProps) => {
         >
           {logo}
         </Typography>
+
+        {/* xs: left nav */}
         <Box
           sx={{
             display: {
@@ -67,7 +64,12 @@ const Header = ({ className, color, logo, pages = [] }: IProps) => {
             flexGrow: 1,
           }}
         >
-          <IconButton color="inherit" id="left" size="large" onClick={onOpen}>
+          <IconButton
+            color="inherit"
+            id="left-header-button"
+            size="large"
+            onClick={onOpen}
+          >
             <MenuIcon />
           </IconButton>
           <Menu
@@ -76,8 +78,7 @@ const Header = ({ className, color, logo, pages = [] }: IProps) => {
               horizontal: 'left',
               vertical: 'bottom',
             }}
-            id="menu-appbar"
-            open={anchorEl?.id === 'left'}
+            open={anchorEl?.id === 'left-header-button'}
             sx={{
               display: {
                 md: 'none',
@@ -86,10 +87,10 @@ const Header = ({ className, color, logo, pages = [] }: IProps) => {
             }}
             keepMounted
             onClose={onClose}
-          >
-            atrwet
-          </Menu>
+          />
         </Box>
+
+        {/* xs: logo */}
         <Typography
           component="div"
           sx={{
@@ -104,6 +105,8 @@ const Header = ({ className, color, logo, pages = [] }: IProps) => {
         >
           {logo}
         </Typography>
+
+        {/* md: nav */}
         <Box
           sx={{
             display: {
@@ -113,22 +116,22 @@ const Header = ({ className, color, logo, pages = [] }: IProps) => {
             flexGrow: 1,
           }}
         >
-          {pages.map(({ href, value }) => {
-            return (
-              <Button
-                key={value}
-                href={href}
-                sx={{
-                  color: 'white',
-                  display: 'block',
-                  my: 2,
-                }}
-              >
-                {value}
-              </Button>
-            );
-          })}
+          {pages.map(({ href, value }) => (
+            <Button
+              key={value}
+              href={href}
+              sx={{
+                color: 'white',
+                display: 'block',
+                my: 2,
+              }}
+            >
+              {value}
+            </Button>
+          ))}
         </Box>
+
+        {/* xs: right nav */}
         <Box
           sx={{
             display: {
@@ -138,7 +141,12 @@ const Header = ({ className, color, logo, pages = [] }: IProps) => {
             flexGrow: 0,
           }}
         >
-          <IconButton color="inherit" id="right" size="large" onClick={onOpen}>
+          <IconButton
+            color="inherit"
+            id="right-header-button"
+            size="large"
+            onClick={onOpen}
+          >
             <CallMadeIcon />
           </IconButton>
           <Menu
@@ -147,8 +155,7 @@ const Header = ({ className, color, logo, pages = [] }: IProps) => {
               horizontal: 'left',
               vertical: 'bottom',
             }}
-            id="1"
-            open={anchorEl?.id === 'right'}
+            open={anchorEl?.id === 'right-header-button'}
             sx={{
               display: {
                 md: 'none',
@@ -158,15 +165,13 @@ const Header = ({ className, color, logo, pages = [] }: IProps) => {
             keepMounted
             onClose={onClose}
           >
-            {pages.map(({ href, value }) => {
-              return (
-                <MenuItem key={value} onClick={onClose}>
-                  <Link color="inherit" href={href} underline="none">
-                    <Typography textAlign="center">{value}</Typography>
-                  </Link>
-                </MenuItem>
-              );
-            })}
+            {pages.map(({ href, value }) => (
+              <MenuItem key={value} onClick={onClose}>
+                <Link color="inherit" href={href} underline="none">
+                  <Typography textAlign="center">{value}</Typography>
+                </Link>
+              </MenuItem>
+            ))}
           </Menu>
         </Box>
       </Toolbar>
