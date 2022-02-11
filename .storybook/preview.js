@@ -1,4 +1,5 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
+
 import { theme } from '../src';
 
 export const decorators = [
