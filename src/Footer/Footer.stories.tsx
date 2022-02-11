@@ -1,6 +1,6 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import Footer from './index';
+import Footer from '.';
 
 export default {
   component: Footer,
@@ -13,5 +13,16 @@ export const Default = Template.bind({});
 
 export const WithCompany = Template.bind({});
 WithCompany.args = {
-  company: 'meta',
+  company: 'Meta',
+};
+
+export const WithChildren = Template.bind({});
+WithChildren.args = {
+  children: (
+    <ol>
+      <li>Facebook</li>
+      <li>Instagram</li>
+    </ol>
+  ),
+  company: 'Meta',
 };

@@ -15,9 +15,7 @@ const StyledContainer = styled(Container, {
 });
 
 const Footer = ({ children, className, company: _company }: IProps) => {
-  const company = useMemo(() => {
-    return _company ? ` ${_company}` : '';
-  }, [_company]);
+  const company = useMemo(() => (_company ? ` ${_company}` : ''), [_company]);
 
   return (
     <StyledContainer as="footer" className={className} maxWidth={false}>
