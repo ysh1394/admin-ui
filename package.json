@@ -51,7 +51,7 @@
   },
   "scripts": {
     "build": "yarn build:cjs && yarn build:esm",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs",
     "build:cjs": "tsc --declaration false --outDir lib/cjs -m CommonJS -t ES2020",
     "build:esm": "tsc",
     "prebuild": "rimraf lib",
