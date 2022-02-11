@@ -1,4 +1,6 @@
 {
+  "bugs": "https://github.com/tpilates/admin-ui/issues",
+  "description": "Quickly build beautiful React apps.",
   "devDependencies": {
     "@babel/core": "^7.17.2",
     "@emotion/react": "^11.7.1",
@@ -38,6 +40,13 @@
   "files": [
     "lib"
   ],
+  "homepage": "https://tpilates.github.io/admin-ui/",
+  "keywords": [
+    "react",
+    "admin-ui",
+    "mui",
+    "material-ui"
+  ],
   "license": "MIT",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -48,6 +57,10 @@
     "@mui/icons-material": "^5",
     "@mui/material": "^5",
     "react": "^17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tpilates/admin-ui.git"
   },
   "scripts": {
     "build": "yarn build:cjs && yarn build:esm",
