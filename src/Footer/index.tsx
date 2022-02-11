@@ -3,9 +3,9 @@ import type { ReactNode } from 'react';
 import { useMemo } from 'react';
 
 export interface IProps {
-  children: ReactNode;
-  className: string;
-  company: string;
+  children?: ReactNode;
+  className?: string;
+  company?: string;
 }
 
 const StyledContainer = styled(Container, {

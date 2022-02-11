@@ -18,11 +18,11 @@ import type { MouseEvent, ReactNode } from 'react';
 import { useCallback, useState } from 'react';
 
 export interface IProps {
-  pages: { href: string; value: string }[];
   className?: string;
   color?: AppBarProps['color'];
   lists?: { href: string; value: string }[];
   logo?: ReactNode;
+  pages?: { href: string; value: string }[];
 }
 
 const Header = ({ className, color, logo, pages = [] }: IProps) => {
