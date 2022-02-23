@@ -1,8 +1,5 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
+  "env": { "browser": true },
   "extends": [
     "airbnb",
     "airbnb-typescript",
@@ -10,18 +7,8 @@
     "plugin:prettier/recommended",
     "plugin:react/jsx-runtime"
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "project": "tsconfig.eslint.json",
-    "sourceType": "module"
-  },
+  "parserOptions": { "project": "tsconfig.eslint.json" },
   "plugins": [
-    "@typescript-eslint",
-    "react",
     "simple-import-sort",
     "sort-destructure-keys",
     "sort-keys-fix",
@@ -33,12 +20,8 @@
       "error",
       {
         "types": {
-          "{}": {
-            "fixWith": "object"
-          },
-          "Object": {
-            "fixWith": "object"
-          }
+          "{}": { "fixWith": "object" },
+          "Object": { "fixWith": "object" }
         }
       }
     ],
@@ -49,6 +32,7 @@
     "@typescript-eslint/no-confusing-void-expression": "error",
     "@typescript-eslint/no-extra-non-null-assertion": "error",
     "@typescript-eslint/no-inferrable-types": "error",
+    "@typescript-eslint/no-shadow": "off",
     "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
     "@typescript-eslint/no-unnecessary-condition": "error",
     "@typescript-eslint/no-unnecessary-type-arguments": "error",
@@ -59,17 +43,9 @@
     "@typescript-eslint/sort-type-union-intersection-members": "error",
     "import/no-extraneous-dependencies": [
       "error",
-      {
-        "devDependencies": ["src/**/*.stories.ts?(x)"]
-      }
+      { "devDependencies": ["src/**/*.stories.ts?(x)"] }
     ],
     "import/prefer-default-export": "warn",
-    "no-restricted-syntax": [
-      "error",
-      {
-        "selector": "TSEnumDeclaration"
-      }
-    ],
     "react/function-component-definition": [
       "error",
       {
@@ -77,19 +53,10 @@
         "unnamedComponents": "arrow-function"
       }
     ],
-    "react/jsx-props-no-spreading": [
-      "error",
-      {
-        "custom": "ignore"
-      }
-    ],
+    "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
     "react/jsx-sort-props": [
       "error",
-      {
-        "callbacksLast": true,
-        "reservedFirst": true,
-        "shorthandLast": true
-      }
+      { "callbacksLast": true, "reservedFirst": true, "shorthandLast": true }
     ],
     "react/prop-types": "off",
     "react/require-default-props": "off",

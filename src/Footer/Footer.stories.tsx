@@ -13,16 +13,16 @@ export const Default = Template.bind({});
 
 export const WithCompany = Template.bind({});
 WithCompany.args = {
-  company: 'Meta',
+  businessName: 'Meta',
 };
 
 export const WithChildren = Template.bind({});
 WithChildren.args = {
+  businessName: 'Meta',
   children: (
     <ol>
       <li>Facebook</li>
       <li>Instagram</li>
     </ol>
   ),
-  company: 'Meta',
 };

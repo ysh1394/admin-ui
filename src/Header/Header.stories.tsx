@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import Header from '.';
@@ -10,39 +11,39 @@ export default {
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
 export const Default = Template.bind({});
-
-export const WithLogo = Template.bind({});
-WithLogo.args = {
-  logo: 'Meta',
+Default.args = {
+  title: 'Meta',
 };
 
 export const WithPages = Template.bind({});
 WithPages.args = {
-  logo: 'Meta',
   pages: [
     {
-      href: '#facebook',
-      value: 'facebook',
+      path: '#facebook',
+      text: 'Facebook',
     },
     {
-      href: '#instagram',
-      value: 'instagram',
+      path: '#instagram',
+      text: 'Instagram',
     },
   ],
+  title: 'Meta',
 };
 
-export const WithColor = Template.bind({});
-WithColor.args = {
-  color: 'secondary',
-  logo: 'Meta',
+export const WithOpenEvent = Template.bind({});
+WithOpenEvent.args = {
+  onOpen: () => {
+    console.log('Click!');
+  },
   pages: [
     {
-      href: '#facebook',
-      value: 'facebook',
+      path: '#facebook',
+      text: 'Facebook',
     },
     {
-      href: '#instagram',
-      value: 'instagram',
+      path: '#instagram',
+      text: 'Instagram',
     },
   ],
+  title: 'Meta',
 };
