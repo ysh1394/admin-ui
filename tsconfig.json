@@ -8,6 +8,7 @@
     "moduleResolution": "Node",
     "noEmitOnError": true,
     "outDir": "lib/esm",
+    "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
