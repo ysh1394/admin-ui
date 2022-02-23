@@ -1,11 +1,10 @@
 import { Box, Container, styled } from '@mui/material';
 import type { ReactNode } from 'react';
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
-export interface IProps {
+export interface FooterProps {
+  businessName?: string;
   children?: ReactNode;
-  className?: string;
-  company?: string;
 }
 
 const StyledContainer = styled(Container, {
@@ -14,17 +13,20 @@ const StyledContainer = styled(Container, {
   overflow: 'auto',
 });
 
-const Footer = ({ children, className, company: _company }: IProps) => {
-  const company = useMemo(() => (_company ? ` ${_company}` : ''), [_company]);
+const Footer = ({ businessName, children }: FooterProps) => {
+  const $businessName = useMemo(
+    () => (businessName ? ` ${businessName}` : ''),
+    [businessName]
+  );
 
   return (
-    <StyledContainer as="footer" className={className} maxWidth={false}>
+    <StyledContainer as="footer" maxWidth={false}>
       {children}
       <Box component="p" my={3}>
-        © 2022{company}. All rights reserved.
+        © 2022{$businessName}. All rights reserved.
       </Box>
     </StyledContainer>
   );
 };
 
-export default Footer;
+export default memo(Footer);
